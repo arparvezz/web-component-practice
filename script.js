@@ -91,3 +91,39 @@ class PrintItems extends HTMLElement{
 
 
 customElements.define('print-items',PrintItems)
+
+
+
+
+class CustomBtn extends HTMLElement{
+  constructor(){
+    super()
+    this.attachShadow({mode: 'open'})
+  }
+  connectedCallback(){
+    let text = this.getAttribute('text') || 'click me'
+
+    this.shadowRoot.innerHTML = `
+    <style>
+    button{
+      margin: 5px 0;
+      padding: 10px 20px;
+      background: #34495e;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      outline:none;
+      font-family: inherit;
+      cursor: pointer;
+    }
+    
+    </style>
+    
+    <button>${text}</button>
+    
+    `
+  }
+}
+
+
+customElements.define('custom-btn',CustomBtn)
