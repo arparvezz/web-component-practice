@@ -123,6 +123,17 @@ class CustomBtn extends HTMLElement{
     
     `
   }
+
+
+  attributeChangedCallback(name,oldVal,newVal){
+    if(name == 'text'){
+      this.shadowRoot.innerHTML = newVal;
+    }
+  }
+
+  static get observedAttributes(){
+    return ['text']
+  }
 }
 
 
